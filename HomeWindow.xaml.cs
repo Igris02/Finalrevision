@@ -28,6 +28,7 @@ namespace Finalrevision
         public SchoolEventPage schoolEvent;
         public WorkProjectPage workProject;
         public MeetingPage meeting;
+        public CompletedPage completed;
         public HomeWindow()
         {
             InitializeComponent();
@@ -38,6 +39,7 @@ namespace Finalrevision
             schoolEvent = new SchoolEventPage();
             workProject = new WorkProjectPage();
             meeting = new MeetingPage();
+            completed = new CompletedPage();
         }
 
         private void LeisureBtn_Click(object sender, RoutedEventArgs e)
@@ -77,7 +79,9 @@ namespace Finalrevision
 
         private void CompleteBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            
+            completed.LoadCompletedTasks();
+            MainFrame.Content = completed;
         }
 
         private void AddTasksBtn_Click(object sender, RoutedEventArgs e)
@@ -129,6 +133,7 @@ namespace Finalrevision
                 TaskTextBox.Text = string.Empty;
 
             }
+            MainFrame.Content = leisure;
         }
 
         

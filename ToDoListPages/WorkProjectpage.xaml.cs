@@ -69,10 +69,55 @@ namespace Finalrevision.ToDoListPages
                     Height = 30 // Adjust height to match the ListBox item height
                 };
 
+                checkBox.Checked += CheckBox_Checked; // Attach the event handler
                 WorkProjectListBox.Items.Add(checkBox); // Add the CheckBox to the ListBox
 
 
             }
+
+        }
+        private void CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            CheckBox checkBox = sender as CheckBox;
+            if (checkBox != null)
+            {
+                string task = checkBox.Content.ToString();
+
+                // Show confirmation message
+                MessageBoxResult result = MessageBox.Show("Is your task complete?", "Task Completion", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+                if (result == MessageBoxResult.Yes)
+                {
+                    workProjectTasks.Remove(task); // Remove from the list
+                    UpdateListBox(); // Refresh the ListBox
+                    MoveToCompletedPage(task); // Move the task to Completed Page
+                    MessageBox.Show("Task Completed", "Task Completion", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                else
+                {
+                    checkBox.IsChecked = false; // Uncheck the checkbox if "No" is selected
+                }
+            }
+        }
+        private void MoveToCompletedPage(string task)
+        {
+            // Save to CompletedTasks.txt (optional)
+            CompletedPage completedPage = new CompletedPage();
+            completedPage.AddCompletedTask(task);
+
+
+            // Remove task from LeisureTasks.txt
+            if (File.Exists("WorkProjectTasks.txt"))
+            {
+                List<string> tasks = File.ReadAllLines("WorkProjectTasks.txt").ToList();
+                tasks.Remove(task);  // Remove the completed task
+                File.WriteAllLines("WorkProjectTasks.txt", tasks); // Overwrite the file with remaining tasks
+            }
+
+            // Refresh the ListBox in LeisurePage
+            workProjectTasks.Remove(task);
+            UpdateListBox();
+
 
         }
 

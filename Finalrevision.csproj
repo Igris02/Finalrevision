@@ -58,6 +58,9 @@
     <Compile Include="ToDoListPages\Assignmentpage.xaml.cs">
       <DependentUpon>Assignmentpage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ToDoListPages\CompletedPage.xaml.cs">
+      <DependentUpon>CompletedPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ToDoListPages\ErrandsPage.xaml.cs">
       <DependentUpon>ErrandsPage.xaml</DependentUpon>
     </Compile>
@@ -96,6 +99,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="ToDoListPages\Assignmentpage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ToDoListPages\CompletedPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

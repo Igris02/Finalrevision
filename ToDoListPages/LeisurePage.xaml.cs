@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -28,6 +29,7 @@ namespace Finalrevision.ToDoListPages
             leisureTasks = new List<string>();
 
             LoadTasks();
+            
 
         }
 
@@ -68,15 +70,59 @@ namespace Finalrevision.ToDoListPages
                     VerticalContentAlignment = VerticalAlignment.Center, // Center the content vertically
                     Height = 30 // Adjust height to match the ListBox item height
                 };
-
+                checkBox.Checked += CheckBox_Checked; // Attach the event handler
                 LeisureListBox.Items.Add(checkBox); // Add the CheckBox to the ListBox
 
 
             }
 
         }
+        private void CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            CheckBox checkBox = sender as CheckBox;
+            if (checkBox != null)
+            {
+                string task = checkBox.Content.ToString();
 
+                // Show confirmation message
+                MessageBoxResult result = MessageBox.Show("Is your task complete?", "Task Completion", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+                if (result == MessageBoxResult.Yes)
+                {
+                    leisureTasks.Remove(task); // Remove from the list
+                    UpdateListBox(); // Refresh the ListBox
+                    MoveToCompletedPage(task); // Move the task to Completed Page
+                    MessageBox.Show("Task Completed", "Task Completion", MessageBoxButton.OK,MessageBoxImage.Information);
+                }
+                else
+                {
+                    checkBox.IsChecked = false; // Uncheck the checkbox if "No" is selected
+                }
+            }
+        }
+        private void MoveToCompletedPage(string task)
+        {
+            // Save to CompletedTasks.txt (optional)
+            CompletedPage completedPage = new CompletedPage();
+            completedPage.AddCompletedTask(task);
+            
+
+            // Remove task from LeisureTasks.txt
+            if (File.Exists("LeisureTasks.txt"))
+            {
+                List<string> tasks = File.ReadAllLines("LeisureTasks.txt").ToList();
+                tasks.Remove(task);  // Remove the completed task
+                File.WriteAllLines("LeisureTasks.txt", tasks); // Overwrite the file with remaining tasks
+            }
+
+            // Refresh the ListBox in LeisurePage
+            leisureTasks.Remove(task);
+            UpdateListBox();
+
+
+        }
         
+
 
         private void EditBtn_Click(object sender, RoutedEventArgs e)
         {

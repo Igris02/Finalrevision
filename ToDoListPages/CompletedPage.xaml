@@ -1,0 +1,14 @@
+﻿<Page x:Class="Finalrevision.ToDoListPages.CompletedPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Finalrevision.ToDoListPages"
+      mc:Ignorable="d" 
+      d:DesignHeight="589" d:DesignWidth="575"
+      Title="CompletedPage" Height="589" Width="575">
+
+    <Grid>
+        <ListBox x:Name="CompletedListBox" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="6,10,19,9" FontSize="20"/>
+    </Grid>
+</Page>

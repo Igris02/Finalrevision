@@ -21,11 +21,11 @@ namespace Finalrevision.ToDoListPages
     /// </summary>
     public partial class Assignmentpage : Page
     {
-        public List<string> leisureTasks { get; set; }
+        public List<string> assignmentTask { get; set; }
         public Assignmentpage()
         {
             InitializeComponent();
-            leisureTasks = new List<string>();
+            assignmentTask = new List<string>();
 
             LoadTasks();
 
@@ -33,7 +33,7 @@ namespace Finalrevision.ToDoListPages
 
         public void AddAssignmentTask(string task)
         {
-            leisureTasks.Add(task); // Add the task to the list
+            assignmentTask.Add(task); // Add the task to the list
             UpdateListBox(); // Manually update the ListBox
         }
 
@@ -46,7 +46,7 @@ namespace Finalrevision.ToDoListPages
                     string line;
                     while ((line = reader.ReadLine()) != null)
                     {
-                        leisureTasks.Add(line); // Add each task to the list
+                        assignmentTask.Add(line); // Add each task to the list
                     }
                 }
             }
@@ -57,7 +57,7 @@ namespace Finalrevision.ToDoListPages
         private void UpdateListBox()
         {
             AssignmentListBox.Items.Clear(); // Clear the ListBox
-            foreach (string task in leisureTasks)
+            foreach (string task in assignmentTask)
             {
                 CheckBox checkBox = new CheckBox
                 {
@@ -69,10 +69,55 @@ namespace Finalrevision.ToDoListPages
                     Height = 30 // Adjust height to match the ListBox item height
                 };
 
+                checkBox.Checked += CheckBox_Checked; // Attach the event handler
                 AssignmentListBox.Items.Add(checkBox); // Add the CheckBox to the ListBox
 
 
             }
+
+        }
+        private void CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            CheckBox checkBox = sender as CheckBox;
+            if (checkBox != null)
+            {
+                string task = checkBox.Content.ToString();
+
+                // Show confirmation message
+                MessageBoxResult result = MessageBox.Show("Is your task complete?", "Task Completion", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+                if (result == MessageBoxResult.Yes)
+                {
+                    assignmentTask.Remove(task); // Remove from the list
+                    UpdateListBox(); // Refresh the ListBox
+                    MoveToCompletedPage(task); // Move the task to Completed Page
+                    MessageBox.Show("Task Completed", "Task Completion", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                else
+                {
+                    checkBox.IsChecked = false; // Uncheck the checkbox if "No" is selected
+                }
+            }
+        }
+        private void MoveToCompletedPage(string task)
+        {
+            // Save to CompletedTasks.txt (optional)
+            CompletedPage completedPage = new CompletedPage();
+            completedPage.AddCompletedTask(task);
+
+
+            // Remove task from LeisureTasks.txt
+            if (File.Exists("AssignmentTasks.txt"))
+            {
+                List<string> tasks = File.ReadAllLines("AssignmentTasks.txt").ToList();
+                tasks.Remove(task);  // Remove the completed task
+                File.WriteAllLines("AssignmentTasks.txt", tasks); // Overwrite the file with remaining tasks
+            }
+
+            // Refresh the ListBox in LeisurePage
+            assignmentTask.Remove(task);
+            UpdateListBox();
+
 
         }
 
