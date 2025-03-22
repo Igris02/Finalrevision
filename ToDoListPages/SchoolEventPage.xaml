@@ -9,10 +9,15 @@
       Title="SchoolEventPage" Height="589" Width="575">
 
     <Grid Background="#FFF39191">
-        <ListBox x:Name="SchoolEventListBox" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="6,10,19,9" FontSize="20"/>
+        <ListBox x:Name="SchoolEventListBox" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="6,10,19,9" FontSize="20" SelectionChanged="SchoolEventListBox_SelectionChanged"/>
 
-        <Button x:Name="EditBtn" Content="Edit" HorizontalAlignment="Left" Margin="384,17,0,0" VerticalAlignment="Top" Width="168" Height="30" Visibility="Visible" Click="EditBtn_Click"/>
-        <Button x:Name="PrioritizeBtn" Content="Prioritize" HorizontalAlignment="Left" Margin="384,52,0,0" VerticalAlignment="Top" Width="168" Height="30" Visibility="Visible" Click="PrioritizeBtn_Click"/>
-        <Button x:Name="DeleteBtn" Content="Delete" HorizontalAlignment="Left" Margin="384,87,0,0" VerticalAlignment="Top" Width="168" Height="30" Visibility="Visible" Click="DeleteBtn_Click"/>
+        <Button x:Name="EditBtn" Content="Edit" HorizontalAlignment="Left" Margin="384,17,0,0" VerticalAlignment="Top" Width="168" Height="30" Visibility="Hidden" Click="EditBtn_Click"/>
+        <Button x:Name="PrioritizeBtn" Content="Prioritize" HorizontalAlignment="Left" Margin="384,52,0,0" VerticalAlignment="Top" Width="168" Height="30" Visibility="Hidden" Click="PrioritizeBtn_Click"/>
+        <Button x:Name="DeleteBtn" Content="Delete" HorizontalAlignment="Left" Margin="384,87,0,0" VerticalAlignment="Top" Width="168" Height="30" Visibility="Hidden" Click="DeleteBtn_Click"/>
+        <Button x:Name="DetailsBtn" Content="Details" HorizontalAlignment="Left" Margin="384,122,0,0" VerticalAlignment="Top" Width="168" Height="30" Visibility="Hidden"/>
+        <Label x:Name="background" Content="Editing" HorizontalAlignment="Center" Margin="0,228,0,0" VerticalAlignment="Top" Visibility="Hidden" Height="137" Width="317" Background="#FFDFD4D4"/>
+
+        <TextBox x:Name="EditTextBox" Margin="131,255,132,267" Visibility="Hidden"/>
+        <Button x:Name="SaveEditBtn" Content="Save" Width="100" Height="30" Margin="238,333,237,226" Visibility="Hidden" Click="SaveEditBtn_Click"/>
     </Grid>
 </Page>

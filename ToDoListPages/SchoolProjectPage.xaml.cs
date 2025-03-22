@@ -121,12 +121,42 @@ namespace Finalrevision.ToDoListPages
 
         }
 
+        private string selectedTask; // Store the selected task for editing
 
         private void EditBtn_Click(object sender, RoutedEventArgs e)
         {
-            EditBtn.Visibility = Visibility.Hidden;
-            PrioritizeBtn.Visibility = Visibility.Hidden;
-            DeleteBtn.Visibility = Visibility.Hidden;
+            if (SchoolProjectListBox.SelectedItem is CheckBox selectedCheckBox)
+            {
+                selectedTask = selectedCheckBox.Content.ToString(); // Store the selected task
+                EditTextBox.Text = selectedTask; // Populate the TextBox
+                EditTextBox.Visibility = Visibility.Visible;
+                SaveEditBtn.Visibility = Visibility.Visible;
+                background.Visibility = Visibility.Visible;
+
+                // Hide other buttons
+                EditBtn.Visibility = Visibility.Hidden;
+                PrioritizeBtn.Visibility = Visibility.Hidden;
+                DeleteBtn.Visibility = Visibility.Hidden;
+                DetailsBtn.Visibility = Visibility.Hidden;
+            }
+        }
+        private void SaveEditBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(EditTextBox.Text) && SchoolProjectTasks.Contains(selectedTask))
+            {
+                int index = SchoolProjectTasks.IndexOf(selectedTask);
+                SchoolProjectTasks[index] = EditTextBox.Text; // Update the task
+
+                UpdateListBox(); // Refresh ListBox
+
+                // Save changes to file
+                File.WriteAllLines("SchoolProjectTasks.txt", SchoolProjectTasks);
+
+                // Hide edit controls
+                EditTextBox.Visibility = Visibility.Hidden;
+                SaveEditBtn.Visibility = Visibility.Hidden;
+                background.Visibility = Visibility.Hidden;
+            }
         }
 
         private void PrioritizeBtn_Click(object sender, RoutedEventArgs e)
@@ -143,7 +173,7 @@ namespace Finalrevision.ToDoListPages
             DeleteBtn.Visibility = Visibility.Hidden;
         }
 
-        private void LeisureListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void SchoolProjectListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (SchoolProjectListBox.SelectedItem != null)
             {

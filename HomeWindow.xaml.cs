@@ -86,24 +86,34 @@ namespace Finalrevision
 
         private void AddTasksBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(TaskTextBox.Text))
-            {
-                MessageBox.Show("Error");
-                return;
-            }
-            else
-            {
-                AddtoLeisureBtn.Visibility = Visibility.Visible;
-                AddtoErrandBtn.Visibility = Visibility.Visible;
-                AddtoSchoolProjectBtn.Visibility = Visibility.Visible;
-                AddtoAssignmentBtn.Visibility = Visibility.Visible;
-                AddtoSchoolEventBtn.Visibility = Visibility.Visible;
-                AddtoWorkProjectBtn.Visibility = Visibility.Visible;
-                AddtoMeetingBtn.Visibility = Visibility.Visible;
+            //if (string.IsNullOrEmpty(TaskTextBox.Text))
+            //{
+            //    MessageBox.Show("Error");
+            //    return;
+            //}
+            //else
+            //{
+            //    AddtoLeisureBtn.Visibility = Visibility.Visible;
+            //    AddtoErrandBtn.Visibility = Visibility.Visible;
+            //    AddtoSchoolProjectBtn.Visibility = Visibility.Visible;
+            //    AddtoAssignmentBtn.Visibility = Visibility.Visible;
+            //    AddtoSchoolEventBtn.Visibility = Visibility.Visible;
+            //    AddtoWorkProjectBtn.Visibility = Visibility.Visible;
+            //    AddtoMeetingBtn.Visibility = Visibility.Visible;
 
-                
 
-            }
+
+            //}
+
+            AddtoLeisureBtn.Visibility = Visibility.Visible;
+            AddtoErrandBtn.Visibility = Visibility.Visible;
+            AddtoSchoolProjectBtn.Visibility = Visibility.Visible;
+            AddtoAssignmentBtn.Visibility = Visibility.Visible;
+            AddtoSchoolEventBtn.Visibility = Visibility.Visible;
+            AddtoWorkProjectBtn.Visibility = Visibility.Visible;
+            AddtoMeetingBtn.Visibility = Visibility.Visible;
+
+            TaskTextBox.Visibility = Visibility.Visible;
         }
 
         private void AddtoLeisureBtn_Click(object sender, RoutedEventArgs e)
@@ -115,13 +125,13 @@ namespace Finalrevision
             }
             else
             {
-                AddtoLeisureBtn.Visibility = Visibility.Visible;
-                AddtoErrandBtn.Visibility = Visibility.Visible;
-                AddtoSchoolProjectBtn.Visibility = Visibility.Visible;
-                AddtoAssignmentBtn.Visibility = Visibility.Visible;
-                AddtoSchoolEventBtn.Visibility = Visibility.Visible;
-                AddtoWorkProjectBtn.Visibility = Visibility.Visible;
-                AddtoMeetingBtn.Visibility = Visibility.Visible;
+                AddtoLeisureBtn.Visibility = Visibility.Hidden;
+                AddtoErrandBtn.Visibility = Visibility.Hidden;
+                AddtoSchoolProjectBtn.Visibility = Visibility.Hidden;
+                AddtoAssignmentBtn.Visibility = Visibility.Hidden;
+                AddtoSchoolEventBtn.Visibility = Visibility.Hidden;
+                AddtoWorkProjectBtn.Visibility = Visibility.Hidden;
+                AddtoMeetingBtn.Visibility = Visibility.Hidden;
 
   
                 using (StreamWriter writer = new StreamWriter("LeisureTasks.txt", true))
@@ -131,7 +141,7 @@ namespace Finalrevision
 
                 leisure.AddLeisureTask(TaskTextBox.Text);
                 TaskTextBox.Text = string.Empty;
-
+                TaskTextBox.Visibility = Visibility.Hidden;
             }
             MainFrame.Content = leisure;
         }
@@ -147,13 +157,13 @@ namespace Finalrevision
             }
             else
             {
-                AddtoLeisureBtn.Visibility = Visibility.Visible;
-                AddtoErrandBtn.Visibility = Visibility.Visible;
-                AddtoSchoolProjectBtn.Visibility = Visibility.Visible;
-                AddtoAssignmentBtn.Visibility = Visibility.Visible;
-                AddtoSchoolEventBtn.Visibility = Visibility.Visible;
-                AddtoWorkProjectBtn.Visibility = Visibility.Visible;
-                AddtoMeetingBtn.Visibility = Visibility.Visible;
+                AddtoLeisureBtn.Visibility = Visibility.Hidden;
+                AddtoErrandBtn.Visibility = Visibility.Hidden;
+                AddtoSchoolProjectBtn.Visibility = Visibility.Hidden;
+                AddtoAssignmentBtn.Visibility = Visibility.Hidden;
+                AddtoSchoolEventBtn.Visibility = Visibility.Hidden;
+                AddtoWorkProjectBtn.Visibility = Visibility.Hidden;
+                AddtoMeetingBtn.Visibility = Visibility.Hidden;
 
 
                 using (StreamWriter writer = new StreamWriter("ErrandTasks.txt", true))
@@ -163,8 +173,9 @@ namespace Finalrevision
 
                 errands.AddErrandTask(TaskTextBox.Text);
                 TaskTextBox.Text = string.Empty;
-
+                TaskTextBox.Visibility = Visibility.Hidden;
             }
+            MainFrame.Content = errands;
         }
         private void AddtoSchoolProjectBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -175,13 +186,13 @@ namespace Finalrevision
             }
             else
             {
-                AddtoLeisureBtn.Visibility = Visibility.Visible;
-                AddtoErrandBtn.Visibility = Visibility.Visible;
-                AddtoSchoolProjectBtn.Visibility = Visibility.Visible;
-                AddtoAssignmentBtn.Visibility = Visibility.Visible;
-                AddtoSchoolEventBtn.Visibility = Visibility.Visible;
-                AddtoWorkProjectBtn.Visibility = Visibility.Visible;
-                AddtoMeetingBtn.Visibility = Visibility.Visible;
+                AddtoLeisureBtn.Visibility = Visibility.Hidden;
+                AddtoErrandBtn.Visibility = Visibility.Hidden;
+                AddtoSchoolProjectBtn.Visibility = Visibility.Hidden;
+                AddtoAssignmentBtn.Visibility = Visibility.Hidden;
+                AddtoSchoolEventBtn.Visibility = Visibility.Hidden;
+                AddtoWorkProjectBtn.Visibility = Visibility.Hidden;
+                AddtoMeetingBtn.Visibility = Visibility.Hidden;
 
 
                 using (StreamWriter writer = new StreamWriter("SchoolProjectTasks.txt", true))
@@ -191,8 +202,9 @@ namespace Finalrevision
 
                 schoolProject.AddSchoolProjectTask(TaskTextBox.Text);
                 TaskTextBox.Text = string.Empty;
-
+                TaskTextBox.Visibility = Visibility.Hidden;
             }
+            MainFrame.Content = schoolProject;
         }
         private void AddtoAssignmentBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -203,13 +215,13 @@ namespace Finalrevision
             }
             else
             {
-                AddtoLeisureBtn.Visibility = Visibility.Visible;
-                AddtoErrandBtn.Visibility = Visibility.Visible;
-                AddtoSchoolProjectBtn.Visibility = Visibility.Visible;
-                AddtoAssignmentBtn.Visibility = Visibility.Visible;
-                AddtoSchoolEventBtn.Visibility = Visibility.Visible;
-                AddtoWorkProjectBtn.Visibility = Visibility.Visible;
-                AddtoMeetingBtn.Visibility = Visibility.Visible;
+                AddtoLeisureBtn.Visibility = Visibility.Hidden;
+                AddtoErrandBtn.Visibility = Visibility.Hidden;
+                AddtoSchoolProjectBtn.Visibility = Visibility.Hidden;
+                AddtoAssignmentBtn.Visibility = Visibility.Hidden;
+                AddtoSchoolEventBtn.Visibility = Visibility.Hidden;
+                AddtoWorkProjectBtn.Visibility = Visibility.Hidden;
+                AddtoMeetingBtn.Visibility = Visibility.Hidden;
 
 
                 using (StreamWriter writer = new StreamWriter("AssignmentTasks.txt", true))
@@ -219,8 +231,9 @@ namespace Finalrevision
 
                 assignment.AddAssignmentTask(TaskTextBox.Text);
                 TaskTextBox.Text = string.Empty;
-
+                TaskTextBox.Visibility = Visibility.Hidden;
             }
+            MainFrame.Content = assignment;
         }
 
         private void AddtoSchoolEventBtn_Click(object sender, RoutedEventArgs e)
@@ -232,13 +245,13 @@ namespace Finalrevision
             }
             else
             {
-                AddtoLeisureBtn.Visibility = Visibility.Visible;
-                AddtoErrandBtn.Visibility = Visibility.Visible;
-                AddtoSchoolProjectBtn.Visibility = Visibility.Visible;
-                AddtoAssignmentBtn.Visibility = Visibility.Visible;
-                AddtoSchoolEventBtn.Visibility = Visibility.Visible;
-                AddtoWorkProjectBtn.Visibility = Visibility.Visible;
-                AddtoMeetingBtn.Visibility = Visibility.Visible;
+                AddtoLeisureBtn.Visibility = Visibility.Hidden;
+                AddtoErrandBtn.Visibility = Visibility.Hidden;
+                AddtoSchoolProjectBtn.Visibility = Visibility.Hidden;
+                AddtoAssignmentBtn.Visibility = Visibility.Hidden;
+                AddtoSchoolEventBtn.Visibility = Visibility.Hidden;
+                AddtoWorkProjectBtn.Visibility = Visibility.Hidden;
+                AddtoMeetingBtn.Visibility = Visibility.Hidden;
 
 
                 using (StreamWriter writer = new StreamWriter("SchoolEventTasks.txt", true))
@@ -248,8 +261,9 @@ namespace Finalrevision
 
                 schoolEvent.AddSchoolEventTask(TaskTextBox.Text);
                 TaskTextBox.Text = string.Empty;
-
+                TaskTextBox.Visibility = Visibility.Hidden;
             }
+            MainFrame.Content = schoolEvent;
         }
         private void AddtoWorkProjectBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -260,13 +274,13 @@ namespace Finalrevision
             }
             else
             {
-                AddtoLeisureBtn.Visibility = Visibility.Visible;
-                AddtoErrandBtn.Visibility = Visibility.Visible;
-                AddtoSchoolProjectBtn.Visibility = Visibility.Visible;
-                AddtoAssignmentBtn.Visibility = Visibility.Visible;
-                AddtoSchoolEventBtn.Visibility = Visibility.Visible;
-                AddtoWorkProjectBtn.Visibility = Visibility.Visible;
-                AddtoMeetingBtn.Visibility = Visibility.Visible;
+                AddtoLeisureBtn.Visibility = Visibility.Hidden;
+                AddtoErrandBtn.Visibility = Visibility.Hidden;
+                AddtoSchoolProjectBtn.Visibility = Visibility.Hidden;
+                AddtoAssignmentBtn.Visibility = Visibility.Hidden;
+                AddtoSchoolEventBtn.Visibility = Visibility.Hidden;
+                AddtoWorkProjectBtn.Visibility = Visibility.Hidden;
+                AddtoMeetingBtn.Visibility = Visibility.Hidden;
 
 
                 using (StreamWriter writer = new StreamWriter("WorkProjectTasks.txt", true))
@@ -276,8 +290,9 @@ namespace Finalrevision
 
                 workProject.AddWorkProjectTask(TaskTextBox.Text);
                 TaskTextBox.Text = string.Empty;
-
+                TaskTextBox.Visibility = Visibility.Hidden;
             }
+            MainFrame.Content = workProject;
         }
 
         private void AddtoMeetingBtn_Click(object sender, RoutedEventArgs e)
@@ -289,13 +304,13 @@ namespace Finalrevision
             }
             else
             {
-                AddtoLeisureBtn.Visibility = Visibility.Visible;
-                AddtoErrandBtn.Visibility = Visibility.Visible;
-                AddtoSchoolProjectBtn.Visibility = Visibility.Visible;
-                AddtoAssignmentBtn.Visibility = Visibility.Visible;
-                AddtoSchoolEventBtn.Visibility = Visibility.Visible;
-                AddtoWorkProjectBtn.Visibility = Visibility.Visible;
-                AddtoMeetingBtn.Visibility = Visibility.Visible;
+                AddtoLeisureBtn.Visibility = Visibility.Hidden;
+                AddtoErrandBtn.Visibility = Visibility.Hidden;
+                AddtoSchoolProjectBtn.Visibility = Visibility.Hidden;
+                AddtoAssignmentBtn.Visibility = Visibility.Hidden;
+                AddtoSchoolEventBtn.Visibility = Visibility.Hidden;
+                AddtoWorkProjectBtn.Visibility = Visibility.Hidden;
+                AddtoMeetingBtn.Visibility = Visibility.Hidden;
 
 
                 using (StreamWriter writer = new StreamWriter("MeetingTasks.txt", true))
@@ -305,8 +320,9 @@ namespace Finalrevision
 
                 meeting.AddMeetingTask(TaskTextBox.Text);
                 TaskTextBox.Text = string.Empty;
-
+                TaskTextBox.Visibility = Visibility.Hidden;
             }
+            MainFrame.Content = meeting;
         }
 
         

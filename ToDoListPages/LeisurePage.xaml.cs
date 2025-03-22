@@ -121,14 +121,43 @@ namespace Finalrevision.ToDoListPages
 
 
         }
-        
 
+        private string selectedTask; // Store the selected task for editing
 
         private void EditBtn_Click(object sender, RoutedEventArgs e)
         {
-            EditBtn.Visibility = Visibility.Hidden;
-            PrioritizeBtn.Visibility = Visibility.Hidden;
-            DeleteBtn.Visibility = Visibility.Hidden;
+            if (LeisureListBox.SelectedItem is CheckBox selectedCheckBox)
+            {
+                selectedTask = selectedCheckBox.Content.ToString(); // Store the selected task
+                EditTextBox.Text = selectedTask; // Populate the TextBox
+                EditTextBox.Visibility = Visibility.Visible;
+                SaveEditBtn.Visibility = Visibility.Visible;
+                background.Visibility = Visibility.Visible;
+
+                // Hide other buttons
+                EditBtn.Visibility = Visibility.Hidden;
+                PrioritizeBtn.Visibility = Visibility.Hidden;
+                DeleteBtn.Visibility = Visibility.Hidden;
+                DetailsBtn.Visibility = Visibility.Hidden;
+            }
+        }
+        private void SaveEditBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(EditTextBox.Text) && leisureTasks.Contains(selectedTask))
+            {
+                int index = leisureTasks.IndexOf(selectedTask);
+                leisureTasks[index] = EditTextBox.Text; // Update the task
+
+                UpdateListBox(); // Refresh ListBox
+
+                // Save changes to file
+                File.WriteAllLines("LeisureTasks.txt", leisureTasks);
+
+                // Hide edit controls
+                EditTextBox.Visibility = Visibility.Hidden;
+                SaveEditBtn.Visibility = Visibility.Hidden;
+                background.Visibility = Visibility.Hidden;
+            }
         }
 
         private void PrioritizeBtn_Click(object sender, RoutedEventArgs e)
@@ -136,6 +165,7 @@ namespace Finalrevision.ToDoListPages
             EditBtn.Visibility = Visibility.Hidden;
             PrioritizeBtn.Visibility = Visibility.Hidden;
             DeleteBtn.Visibility = Visibility.Hidden;
+            DetailsBtn.Visibility = Visibility.Hidden;
         }
 
         private void DeleteBtn_Click(object sender, RoutedEventArgs e)
@@ -143,6 +173,7 @@ namespace Finalrevision.ToDoListPages
             EditBtn.Visibility = Visibility.Hidden;
             PrioritizeBtn.Visibility = Visibility.Hidden;
             DeleteBtn.Visibility = Visibility.Hidden;
+            DetailsBtn.Visibility = Visibility.Hidden;
         }
 
         private void LeisureListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -152,6 +183,7 @@ namespace Finalrevision.ToDoListPages
                 EditBtn.Visibility = Visibility.Visible;
                 PrioritizeBtn.Visibility = Visibility.Visible;
                 DeleteBtn.Visibility = Visibility.Visible;
+                DetailsBtn.Visibility = Visibility.Visible;
             }
         }
     }
