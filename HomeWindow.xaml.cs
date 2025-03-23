@@ -100,8 +100,8 @@ namespace Finalrevision
                 AddtoWorkProjectBtn.Visibility = Visibility.Visible;
                 AddtoMeetingBtn.Visibility = Visibility.Visible;
                 TaskTextBox.Visibility = Visibility.Visible;
-                inputback.Visibility = Visibility.Visible;
-                Details.Visibility = Visibility.Visible;
+                //inputback.Visibility = Visibility.Visible;
+                //Details.Visibility = Visibility.Visible;
 
                 // Change button text to "Cancel"
                 AddTasksBtn.Content = "Cancel";
@@ -119,8 +119,8 @@ namespace Finalrevision
                 AddtoWorkProjectBtn.Visibility = Visibility.Hidden;
                 AddtoMeetingBtn.Visibility = Visibility.Hidden;
                 TaskTextBox.Visibility = Visibility.Hidden;
-                inputback.Visibility = Visibility.Hidden;
-                Details.Visibility = Visibility.Hidden;
+                //inputback.Visibility = Visibility.Hidden;
+                //Details.Visibility = Visibility.Hidden;
 
                 // Change button text back to "Add"
                 AddTasksBtn.Content = "Add Tasks";
@@ -346,5 +346,7 @@ namespace Finalrevision
             feedback.Show();
             this.Close();
         }
+
+        
     }
 }
