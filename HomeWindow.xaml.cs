@@ -79,41 +79,52 @@ namespace Finalrevision
 
         private void CompleteBtn_Click(object sender, RoutedEventArgs e)
         {
-            
-            completed.LoadCompletedTasks();
             MainFrame.Content = completed;
+            completed.completedTasks.Clear();
+            completed.LoadCompletedTasks();
+            
         }
 
         private void AddTasksBtn_Click(object sender, RoutedEventArgs e)
         {
-            //if (string.IsNullOrEmpty(TaskTextBox.Text))
-            //{
-            //    MessageBox.Show("Error");
-            //    return;
-            //}
-            //else
-            //{
-            //    AddtoLeisureBtn.Visibility = Visibility.Visible;
-            //    AddtoErrandBtn.Visibility = Visibility.Visible;
-            //    AddtoSchoolProjectBtn.Visibility = Visibility.Visible;
-            //    AddtoAssignmentBtn.Visibility = Visibility.Visible;
-            //    AddtoSchoolEventBtn.Visibility = Visibility.Visible;
-            //    AddtoWorkProjectBtn.Visibility = Visibility.Visible;
-            //    AddtoMeetingBtn.Visibility = Visibility.Visible;
 
 
+            if (AddTasksBtn.Content.ToString() == "Add Tasks")
+            {
+                // Show buttons
+                AddtoLeisureBtn.Visibility = Visibility.Visible;
+                AddtoErrandBtn.Visibility = Visibility.Visible;
+                AddtoSchoolProjectBtn.Visibility = Visibility.Visible;
+                AddtoAssignmentBtn.Visibility = Visibility.Visible;
+                AddtoSchoolEventBtn.Visibility = Visibility.Visible;
+                AddtoWorkProjectBtn.Visibility = Visibility.Visible;
+                AddtoMeetingBtn.Visibility = Visibility.Visible;
+                TaskTextBox.Visibility = Visibility.Visible;
+                inputback.Visibility = Visibility.Visible;
+                Details.Visibility = Visibility.Visible;
 
-            //}
+                // Change button text to "Cancel"
+                AddTasksBtn.Content = "Cancel";
+            }
+            else
+            {
 
-            AddtoLeisureBtn.Visibility = Visibility.Visible;
-            AddtoErrandBtn.Visibility = Visibility.Visible;
-            AddtoSchoolProjectBtn.Visibility = Visibility.Visible;
-            AddtoAssignmentBtn.Visibility = Visibility.Visible;
-            AddtoSchoolEventBtn.Visibility = Visibility.Visible;
-            AddtoWorkProjectBtn.Visibility = Visibility.Visible;
-            AddtoMeetingBtn.Visibility = Visibility.Visible;
+            
+                // Hide buttons
+                AddtoLeisureBtn.Visibility = Visibility.Hidden;
+                AddtoErrandBtn.Visibility = Visibility.Hidden;
+                AddtoSchoolProjectBtn.Visibility = Visibility.Hidden;
+                AddtoAssignmentBtn.Visibility = Visibility.Hidden;
+                AddtoSchoolEventBtn.Visibility = Visibility.Hidden;
+                AddtoWorkProjectBtn.Visibility = Visibility.Hidden;
+                AddtoMeetingBtn.Visibility = Visibility.Hidden;
+                TaskTextBox.Visibility = Visibility.Hidden;
+                inputback.Visibility = Visibility.Hidden;
+                Details.Visibility = Visibility.Hidden;
 
-            TaskTextBox.Visibility = Visibility.Visible;
+                // Change button text back to "Add"
+                AddTasksBtn.Content = "Add Tasks";
+            }
         }
 
         private void AddtoLeisureBtn_Click(object sender, RoutedEventArgs e)
@@ -145,6 +156,7 @@ namespace Finalrevision
             }
             MainFrame.Content = leisure;
         }
+
 
         
 
@@ -325,6 +337,14 @@ namespace Finalrevision
             MainFrame.Content = meeting;
         }
 
-        
+        private void Homebtn_Click(object sender, RoutedEventArgs e)
+        {
+
+            
+
+            Feedback feedback = new Feedback();
+            feedback.Show();
+            this.Close();
+        }
     }
 }

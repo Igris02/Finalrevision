@@ -39,6 +39,7 @@ namespace Finalrevision.ToDoListPages
                 using (StreamReader reader = new StreamReader("CompletedTasks.txt"))
                 {
                     string line;
+                    
                     while ((line = reader.ReadLine()) != null)
                     {
                         completedTasks.Add(line);
@@ -56,7 +57,9 @@ namespace Finalrevision.ToDoListPages
                     VerticalAlignment = VerticalAlignment.Center, // Center the CheckBox vertically
                     VerticalContentAlignment = VerticalAlignment.Center, // Center the content vertically
                     Height = 30 // Adjust height to match the ListBox item height
+
                 };
+                
                 CompletedListBox.Items.Add(checkBox);
                 checkBox.IsEnabled = false;
             }

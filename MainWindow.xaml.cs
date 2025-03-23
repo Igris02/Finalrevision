@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace Finalrevision
 {
@@ -23,9 +24,30 @@ namespace Finalrevision
         public MainWindow()
         {
             InitializeComponent();
+
+            tdicon.Opacity = 100;
+            nameicon.Opacity = 100;
+
+            DispatcherTimer timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromSeconds(0);
+            timer.Tick += Timer_Tick;
+            timer.Start();
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+
+            DispatcherTimer timer = sender as DispatcherTimer;
+            timer.Stop();
+            tdicon.Opacity = 0;
+            nameicon.Opacity = 0;
+
+
+
             HomeWindow home = new HomeWindow();
             home.Show();
             this.Close();
         }
+        
     }
 }
