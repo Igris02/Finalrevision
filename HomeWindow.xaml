@@ -15,12 +15,16 @@
 
 
 
-        <Frame x:Name="MainFrame" Grid.Column="1" 
+        <Frame x:Name="MainFrame" 
             Height="589" 
             Background="LightBlue" 
             VerticalAlignment="Top" 
             Margin="0,70,0,0"
-            NavigationUIVisibility="Hidden"/>
+            NavigationUIVisibility="Hidden" Grid.Column="1"/>
+
+
+
+        <Label x:Name="LabeltoHide" Grid.Column="1" Content="Label" HorizontalAlignment="Left" Margin="50,86,0,0" VerticalAlignment="Top" Height="565" Width="472" Background="#FF797979" Visibility="Hidden"/>
 
 
 
@@ -49,8 +53,14 @@
         <TextBox x:Name="TaskTextBox" Grid.Column="1" 
              Height="55" 
              VerticalAlignment="Top" 
-             Margin="61,126,64,0"
-                 Visibility="Visible"/>
+             Margin="61,135,64,0"
+                 Visibility="Hidden"/>
+        <TextBox x:Name="Details" Grid.Column="1" 
+     Height="151" 
+     VerticalAlignment="Top" 
+     Margin="61,223,64,0"
+         Visibility="Hidden"/>
+
         <Button x:Name="LeisureBtn" Grid.Column="2" Content="Leisure" HorizontalAlignment="Center" Margin="0,132,0,0" VerticalAlignment="Top" Height="35" Width="210" Visibility="Visible" Click="LeisureBtn_Click"/>
         <Button x:Name="SchoolProjectBtn" Grid.Column="2" Content="School Projects" HorizontalAlignment="Center" Margin="0,263,0,0" VerticalAlignment="Top" Height="35" Width="210" Click="SchoolProjectBtn_Click"/>
         <Button x:Name="ErrandBtn" Grid.Column="2" Content="Errands" HorizontalAlignment="Center" Margin="0,173,0,0" VerticalAlignment="Top" Height="35" Width="210"  Visibility="Visible" Click="ErrandBtn_Click"/>
@@ -60,13 +70,13 @@
         <Button x:Name="CompleteBtn" Grid.Column="2" Content="Complted Tasks" HorizontalAlignment="Center" VerticalAlignment="Top" Height="34" Width="230" Margin="0,523,0,0" Click="CompleteBtn_Click"/>
 
 
-        <Button x:Name="AddtoLeisureBtn" Grid.Column="1" Content="Add to Leisure" HorizontalAlignment="Left" Margin="391,321,0,0" VerticalAlignment="Top" Width="168" Height="30" Visibility="Visible" Click="AddtoLeisureBtn_Click"/>
-        <Button x:Name="AddtoErrandBtn" Grid.Column="1" Content="Add to Errands" HorizontalAlignment="Left" Margin="391,371,0,0" VerticalAlignment="Top" Width="168" Height="30" Visibility="Visible" Click="AddtoErrandBtn_Click"/>
-        <Button x:Name="AddtoSchoolProjectBtn" Grid.Column="1" Content="Add to School Projects" HorizontalAlignment="Left" Margin="391,421,0,0" VerticalAlignment="Top" Width="168" Height="30" Visibility="Visible" Click="AddtoSchoolProjectBtn_Click"/>
-        <Button x:Name="AddtoAssignmentBtn" Grid.Column="1" Content="Add to Assignments" HorizontalAlignment="Left" Margin="391,471,0,0" VerticalAlignment="Top" Width="168" Height="30" Visibility="Visible" Click="AddtoAssignmentBtn_Click"/>
-        <Button x:Name="AddtoSchoolEventBtn" Grid.Column="1" Content="Add to School Event" HorizontalAlignment="Left" Margin="391,521,0,0" VerticalAlignment="Top" Width="168" Height="30" Visibility="Visible" Click="AddtoSchoolEventBtn_Click"/>
-        <Button x:Name="AddtoWorkProjectBtn" Grid.Column="1" Content="Add to Work Projects" HorizontalAlignment="Left" Margin="391,571,0,0" VerticalAlignment="Top" Width="168" Height="30" Visibility="Visible" Click="AddtoWorkProjectBtn_Click"/>
-        <Button x:Name="AddtoMeetingBtn" Grid.Column="1" Content="Add to Meetings" HorizontalAlignment="Left" Margin="391,621,0,0" VerticalAlignment="Top" Width="168" Height="30" Visibility="Visible" Click="AddtoMeetingBtn_Click"/>
+        <Button x:Name="AddtoLeisureBtn" Grid.Column="1" Content="Add to Leisure" HorizontalAlignment="Left" Margin="285,385,0,0" VerticalAlignment="Top" Width="224" Height="32" Visibility="Hidden" Click="AddtoLeisureBtn_Click"/>
+        <Button x:Name="AddtoErrandBtn" Grid.Column="1" Content="Add to Errands" HorizontalAlignment="Left" Margin="285,422,0,0" VerticalAlignment="Top" Width="224" Height="32" Visibility="Hidden" Click="AddtoErrandBtn_Click"/>
+        <Button x:Name="AddtoSchoolProjectBtn" Grid.Column="1" Content="Add to School Projects" HorizontalAlignment="Left" Margin="285,459,0,0" VerticalAlignment="Top" Width="224" Height="32" Visibility="Hidden" Click="AddtoSchoolProjectBtn_Click"/>
+        <Button x:Name="AddtoAssignmentBtn" Grid.Column="1" Content="Add to Assignments" HorizontalAlignment="Left" Margin="285,497,0,0" VerticalAlignment="Top" Width="224" Height="32" Visibility="Hidden" Click="AddtoAssignmentBtn_Click"/>
+        <Button x:Name="AddtoSchoolEventBtn" Grid.Column="1" Content="Add to School Event" HorizontalAlignment="Left" Margin="285,535,0,0" VerticalAlignment="Top" Width="224" Height="32" Visibility="Hidden" Click="AddtoSchoolEventBtn_Click"/>
+        <Button x:Name="AddtoWorkProjectBtn" Grid.Column="1" Content="Add to Work Projects" HorizontalAlignment="Left" Margin="285,573,0,0" VerticalAlignment="Top" Width="224" Height="32" Visibility="Hidden" Click="AddtoWorkProjectBtn_Click"/>
+        <Button x:Name="AddtoMeetingBtn" Grid.Column="1" Content="Add to Meetings" HorizontalAlignment="Left" Margin="285,611,0,0" VerticalAlignment="Top" Width="224" Height="32" Visibility="Hidden" Click="AddtoMeetingBtn_Click"/>
 
         <Label Content="" 
         Grid.Column="0" 
@@ -79,7 +89,10 @@
         <Button Grid.Column="2" Content="Study" HorizontalAlignment="Center" Margin="0,219,0,0" VerticalAlignment="Top" Height="34" Width="230"/>
         <Button Grid.Column="2" Content="Work" HorizontalAlignment="Center" VerticalAlignment="Top" Height="34" Width="230" Margin="0,389,0,0"/>
         <Button x:Name="MeetingBtn" Grid.Column="2" Content="Conference/Meeting" HorizontalAlignment="Center" VerticalAlignment="Top" Height="35" Width="210" Margin="0,475,0,0" Click="MeetingBtn_Click"/>
-        <Button x:Name="Homebtn" Grid.Column="1" Content="Home" HorizontalAlignment="Left" Margin="466,19,0,0" VerticalAlignment="Top" Width="95" Height="33" Click="Homebtn_Click"/>
+        <Button x:Name="Homebtn" Grid.Column="1" Content="Home" HorizontalAlignment="Left" Margin="448,19,0,0" VerticalAlignment="Top" Width="95" Height="33" Click="Homebtn_Click"/>
+        <Calendar x:Name="Calendaryo" Grid.Column="1" HorizontalAlignment="Left" Margin="81,457,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
+        <Button x:Name="RemindBtnHide" Grid.Column="1" Content="Remind Me?" HorizontalAlignment="Left" Margin="61,385,0,0" VerticalAlignment="Top" Height="48" Width="141" Visibility="Hidden"/>
+        <Frame x:Name="PrioFrame" Content="Frame" Margin="5,48,7,393"/>
 
 
     </Grid>

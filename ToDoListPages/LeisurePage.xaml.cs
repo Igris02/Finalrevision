@@ -23,11 +23,12 @@ namespace Finalrevision.ToDoListPages
     public partial class LeisurePage : Page
     {
         public List<string> leisureTasks { get; set; }
+
+
         public LeisurePage()
         {
             InitializeComponent();
             leisureTasks = new List<string>();
-
             LoadTasks();
             
 
@@ -166,6 +167,8 @@ namespace Finalrevision.ToDoListPages
             PrioritizeBtn.Visibility = Visibility.Hidden;
             DeleteBtn.Visibility = Visibility.Hidden;
             DetailsBtn.Visibility = Visibility.Hidden;
+
+           
         }
 
         private void DeleteBtn_Click(object sender, RoutedEventArgs e)
@@ -174,6 +177,20 @@ namespace Finalrevision.ToDoListPages
             PrioritizeBtn.Visibility = Visibility.Hidden;
             DeleteBtn.Visibility = Visibility.Hidden;
             DetailsBtn.Visibility = Visibility.Hidden;
+
+            if (LeisureListBox.SelectedItem is CheckBox selectedCheckBox)
+            {
+                string taskToDelete = selectedCheckBox.Content.ToString();
+                MessageBoxResult result = MessageBox.Show("Are you sure you want to delete this task?", "Delete Task", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+                if (result == MessageBoxResult.Yes)
+                {
+                    leisureTasks.Remove(taskToDelete);
+                    File.WriteAllLines("LeisureTasks.txt", leisureTasks);
+                    UpdateListBox();
+                    MessageBox.Show("Task Deleted Successfully", "Delete Task", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+            }
         }
 
         private void LeisureListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

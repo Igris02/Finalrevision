@@ -29,6 +29,8 @@ namespace Finalrevision
         public WorkProjectPage workProject;
         public MeetingPage meeting;
         public CompletedPage completed;
+  
+        
         public HomeWindow()
         {
             InitializeComponent();
@@ -40,6 +42,9 @@ namespace Finalrevision
             workProject = new WorkProjectPage();
             meeting = new MeetingPage();
             completed = new CompletedPage();
+
+
+         
         }
 
         private void LeisureBtn_Click(object sender, RoutedEventArgs e)
@@ -100,10 +105,10 @@ namespace Finalrevision
                 AddtoWorkProjectBtn.Visibility = Visibility.Visible;
                 AddtoMeetingBtn.Visibility = Visibility.Visible;
                 TaskTextBox.Visibility = Visibility.Visible;
-                //inputback.Visibility = Visibility.Visible;
-                //Details.Visibility = Visibility.Visible;
-
-                // Change button text to "Cancel"
+                Details.Visibility = Visibility.Visible;
+                RemindBtnHide.Visibility = Visibility.Visible;
+                LabeltoHide.Visibility = Visibility.Visible;
+                Calendaryo.Visibility = Visibility.Visible;
                 AddTasksBtn.Content = "Cancel";
             }
             else
@@ -119,10 +124,10 @@ namespace Finalrevision
                 AddtoWorkProjectBtn.Visibility = Visibility.Hidden;
                 AddtoMeetingBtn.Visibility = Visibility.Hidden;
                 TaskTextBox.Visibility = Visibility.Hidden;
-                //inputback.Visibility = Visibility.Hidden;
-                //Details.Visibility = Visibility.Hidden;
-
-                // Change button text back to "Add"
+                Details.Visibility = Visibility.Hidden;
+                RemindBtnHide.Visibility = Visibility.Hidden;
+                LabeltoHide.Visibility = Visibility.Hidden;
+                Calendaryo.Visibility = Visibility.Hidden;
                 AddTasksBtn.Content = "Add Tasks";
             }
         }
