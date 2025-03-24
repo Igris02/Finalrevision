@@ -9,7 +9,16 @@
       Title="Assignmentpage" Height="589" Width="575">
 
     <Grid Background="#FFF39191">
-        <ListBox x:Name="AssignmentListBox" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="6,10,19,9" FontSize="20" SelectionChanged="AssignmentListBox_SelectionChanged"/>
+        <ListBox x:Name="AssignmentListBox" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="-1,0,0,0" FontSize="20" SelectionChanged="AssignmentListBox_SelectionChanged" Height="588" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5">
+            <ListBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="-0.108"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="-0.531"/>
+                </TransformGroup>
+            </ListBox.RenderTransform>
+        </ListBox>
 
         <Button x:Name="EditBtn" Content="Edit" HorizontalAlignment="Left" Margin="384,17,0,0" VerticalAlignment="Top" Width="168" Height="30" Visibility="Hidden" Click="EditBtn_Click"/>
         <Button x:Name="PrioritizeBtn" Content="Prioritize" HorizontalAlignment="Left" Margin="384,52,0,0" VerticalAlignment="Top" Width="168" Height="30" Visibility="Hidden" Click="PrioritizeBtn_Click"/>

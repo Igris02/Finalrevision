@@ -29,7 +29,7 @@ namespace Finalrevision
             nameicon.Opacity = 100;
 
             DispatcherTimer timer = new DispatcherTimer();
-            timer.Interval = TimeSpan.FromSeconds(0);
+            timer.Interval = TimeSpan.FromSeconds(3);
             timer.Tick += Timer_Tick;
             timer.Start();
         }

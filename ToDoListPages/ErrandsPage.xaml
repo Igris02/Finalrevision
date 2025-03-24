@@ -9,7 +9,7 @@
       Title="ErrandsPage" Height="589" Width="575">
 
     <Grid Background="#FFF39191">
-        <ListBox x:Name="ErrandsListBox" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="6,10,19,9" FontSize="20" SelectionChanged="ErrandsListBox_SelectionChanged"/>
+        <ListBox x:Name="ErrandsListBox" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,0,-1,0" FontSize="20" SelectionChanged="ErrandsListBox_SelectionChanged"/>
 
         <Button x:Name="EditBtn" Content="Edit" HorizontalAlignment="Left" Margin="384,17,0,0" VerticalAlignment="Top" Width="168" Height="30" Visibility="Hidden" Click="EditBtn_Click"/>
         <Button x:Name="PrioritizeBtn" Content="Prioritize" HorizontalAlignment="Left" Margin="384,52,0,0" VerticalAlignment="Top" Width="168" Height="30" Visibility="Hidden" Click="PrioritizeBtn_Click"/>

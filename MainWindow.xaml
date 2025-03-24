@@ -9,11 +9,5 @@
     <Grid>
         <Image x:Name="tdicon" Source="C:\Users\USER\Downloads\DALL_E_2025-03-19_10.36.40_-_A_modern__minimalistic_to-do_list_icon_featuring_a_checklist_with_three_checked_boxes_and_a_pencil._The_design_is_clean__with_a_soft_shadow_effect_and-removebg-preview.png" HorizontalAlignment="Center" Height="300" VerticalAlignment="Top" Width="300" Margin="0,158,0,0"/>
         <Image x:Name="nameicon" Margin="330,460,330,171" Source="/Screenshot_2025-03-19_104706-removebg-preview.png" Stretch="Fill"/>
-        <Frame x:Name="MainFrame" 
-            Height="589" 
-            Background="LightBlue" 
-            VerticalAlignment="Top" 
-            Margin="230,70,230,0"
-            NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

@@ -106,9 +106,9 @@ namespace Finalrevision
                 AddtoMeetingBtn.Visibility = Visibility.Visible;
                 TaskTextBox.Visibility = Visibility.Visible;
                 Details.Visibility = Visibility.Visible;
-                RemindBtnHide.Visibility = Visibility.Visible;
-                LabeltoHide.Visibility = Visibility.Visible;
-                Calendaryo.Visibility = Visibility.Visible;
+                //RemindBtnHide.Visibility = Visibility.Visible;
+                //LabeltoHide.Visibility = Visibility.Visible;
+                //Calendaryo.Visibility = Visibility.Visible;
                 AddTasksBtn.Content = "Cancel";
             }
             else
@@ -125,9 +125,9 @@ namespace Finalrevision
                 AddtoMeetingBtn.Visibility = Visibility.Hidden;
                 TaskTextBox.Visibility = Visibility.Hidden;
                 Details.Visibility = Visibility.Hidden;
-                RemindBtnHide.Visibility = Visibility.Hidden;
-                LabeltoHide.Visibility = Visibility.Hidden;
-                Calendaryo.Visibility = Visibility.Hidden;
+                //RemindBtnHide.Visibility = Visibility.Hidden;
+                //LabeltoHide.Visibility = Visibility.Hidden;
+                //Calendaryo.Visibility = Visibility.Hidden;
                 AddTasksBtn.Content = "Add Tasks";
             }
         }
