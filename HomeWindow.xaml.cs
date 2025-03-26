@@ -44,7 +44,6 @@ namespace Finalrevision
             completed = new CompletedPage();
 
 
-         
         }
 
         private void LeisureBtn_Click(object sender, RoutedEventArgs e)
